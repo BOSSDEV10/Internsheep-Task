@@ -49,10 +49,18 @@
     },
     {
         "name": "Task 13: Services",
-        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/31-Dec-2025/Services.html"
+        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/02-Jan-2026/Services.html"
     },
     {
         "name": "Task 14: Event",
-        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/02-Jan-2026/Event.html"
+        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/05-Jan-2026/Event.html"
+    },
+    {
+        "name": "Task 15: EventDetails",
+        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/08-Jan-2026/EventDetails.html"
+    },
+    {
+        "name": "Task 16: JioHome",
+        "link": "https://BOSSDEV10.github.io/Internsheep-Task/Tasks/12-Jan-2026/JioHome.html"
     }
 ]

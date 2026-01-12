@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Sunidhi Chauhan – Live in Delhi | District</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">district<span>.</span></a>
+
+      <div class="search-pill hidden-mobile">
+        <div class="loc-group">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Delhi NCR</span>
+          <i class="fa-solid fa-chevron-down" style="font-size:0.7em; margin-left:4px;"></i>
+        </div>
+        <span class="sep"></span>
+        <input class="search-input" type="text" placeholder="Search for events, artists..." />
+        <i class="fa-solid fa-magnifying-glass" style="color:#aaa;"></i>
+      </div>
+
+      <div class="hidden-mobile" style="display:flex; align-items:center; gap:24px;">
+        <a href="#" style="font-weight:600; font-size:0.9rem;">List event</a>
+        <div
+          style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, #111, #333); color:white; display:grid; place-items:center; font-weight:700; font-size:14px;">
+          SC</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="subnav-container hidden-mobile">
+    <div class="subnav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#artist" class="nav-link">Artist</a>
+      <a href="#venue" class="nav-link">Venue</a>
+      <a href="#faqs" class="nav-link">FAQs</a>
+    </div>
+  </nav>
+
+  <main class="main-layout">
+
+    <div class="content-column">
+
+      <div class="gallery-section">
+        <div class="gallery-scroll">
+          <div class="gallery-item"><img
+              src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=1600"
+              alt="Concert" loading="lazy"></div>
+          <div class="gallery-item"><img
+              src="https://images.unsplash.com/photo-1767969457898-51d5e9cf81d2?auto=format&fit=crop&q=80&w=1600"
+              alt="Artist" loading="lazy"></div>
+          <div class="gallery-item"><img
+              src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=1600"
+              alt="Crowd" loading="lazy"></div>
+        </div>
+        <div class="gallery-overlay"></div>
+        <div class="photo-badge"><i class="fa-regular fa-images"></i> View Gallery</div>
+      </div>
+
+      <div class="mobile-head">
+        <h1 class="m-title">Sunidhi Chauhan – I Am Home India Tour</h1>
+        <div class="m-meta">
+          <span><i class="fa-regular fa-calendar"></i> Sat, 27 Dec</span> •
+          <span>JLN Stadium, Delhi</span>
+        </div>
+      </div>
+
+      <section id="about">
+        <h2>About the Event</h2>
+        <p>When Sunidhi hits the stage, the vibe flips. Lights drop. Bass hits. The crowd loses it. No filters. No
+          fluff. Just pure, electric energy. The hits that raised you. The ones you forgot you knew.</p>
+      </section>
+
+      <section class="info-grid">
+        <div class="info-tile">
+          <div class="icon-circle"><i class="fa-solid fa-language"></i></div>
+          <div class="tile-data"><small>Language</small><strong>English, Hindi</strong></div>
+        </div>
+        <div class="info-tile">
+          <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
+          <div class="tile-data"><small>Duration</small><strong>2h 30m</strong></div>
+        </div>
+        <div class="info-tile">
+          <div class="icon-circle"><i class="fa-solid fa-user-group"></i></div>
+          <div class="tile-data"><small>Age Limit</small><strong>5 yrs+</strong></div>
+        </div>
+      </section>
+
+      <section id="artist">
+        <h2>Artist</h2>
+        <div class="artist-card">
+          <div class="artist-img-wrap">
+            <img src="https://ui-avatars.com/api/?name=Sunidhi+Chauhan&background=ff3f6c&color=fff&size=128" alt="SC">
+            <div class="verified-icon"><i class="fa-solid fa-check"></i></div>
+          </div>
+          <div style="flex:1;">
+            <h3>Sunidhi Chauhan</h3>
+            <p style="margin:4px 0 12px; font-size:0.9rem;">Queen of Bollywood Playback • 10M+ Followers</p>
+            <div class="follow-wrapper">
+              <input type="checkbox" id="follow-toggle" class="follow-toggle">
+              <label for="follow-toggle" class="btn-follow"><i class="fa-solid fa-plus"></i></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="venue">
+        <div style="margin-bottom:20px;">
+          <h2>Jawaharlal Nehru Stadium</h2>
+          <p style="margin:0;">Gate No 14, Pragati Vihar, New Delhi</p>
+        </div>
+        <div class="venue-card">
+          <div class="map-frame">
+            <iframe width="100%" height="100%" frameborder="0" style="border:0" loading="lazy"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.955799797276!2d77.22728957550097!3d28.58609897569107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2f999999999%3A0x3c7c4f451f237e1a!2sJawaharlal%20Nehru%20Stadium!5e0!3m2!1sen!2sin!4v1709880000000!5m2!1sen!2sin"></iframe>
+          </div>
+          <a href="#" class="btn-directions">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </section>
+
+      <section id="faqs">
+        <h2>FAQs</h2>
+        <details>
+          <summary>Is parking available? <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="answer">Limited paid parking is available on a first-come, first-served basis.</div>
+        </details>
+        <details>
+          <summary>What time do gates open? <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="answer">Gates open at 5:00 PM. Show starts at 6:30 PM.</div>
+        </details>
+        </details>
+      </section>
+
+    </div>
+
+    <aside class="sidebar-column">
+      <div class="booking-widget">
+        <span class="badge-trending">Trending</span>
+        <h1 class="side-title">Sunidhi Chauhan – I Am Home India Tour 2025-26</h1>
+
+        <div class="meta-list">
+          <div class="meta-item">
+            <div class="meta-icon"><i class="fa-regular fa-calendar"></i></div>
+            <span>Sat, 27 Dec 2025 • 6:30 PM</span>
+          </div>
+          <div class="meta-item">
+            <div class="meta-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <span>JLN Stadium, Delhi</span>
+          </div>
+        </div>
+
+        <div class="ticket-group">
+          <label class="ticket-label">
+            <input type="radio" name="ticket" class="ticket-input t-1000" checked>
+            <div class="ticket-card">
+              <div>
+                <span class="t-type">General Access</span>
+                <span class="t-detail">Standing • Rear View</span>
+              </div>
+              <div>
+                <span class="t-cost">₹1,000</span>
+                <span class="t-status">Selling Fast</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="ticket-label">
+            <input type="radio" name="ticket" class="ticket-input t-4999">
+            <div class="ticket-card">
+              <div>
+                <span class="t-type">Fanpit</span>
+                <span class="t-detail">Front Stage • Early Entry</span>
+              </div>
+              <div>
+                <span class="t-cost">₹4,999</span>
+                <span class="t-status">Few Left</span>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <button class="cta-btn">
+          <span>Proceed to Book</span>
+          <span class="price-show show-1000">₹1,000</span>
+          <span class="price-show show-4999">₹4,999</span>
+        </button>
+
+        <div
+          style="text-align:center; margin-top:16px; font-size:0.8rem; color:#888; display:flex; justify-content:center; gap:6px;">
+          <i class="fa-solid fa-shield-halved"></i> 100% Buyer Guarantee
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+        <div class="brand-col">
+          <div class="brand">district<span>.</span></div>
+          <p class="footer-desc">
+            Your premier destination for live entertainment. Discover concerts, theatre, and sports events happening in
+            your city.
+          </p>
+          <div class="app-buttons">
+            <button class="store-btn">
+              <i class="fa-brands fa-apple"></i>
+              <div>
+                <span style="display:block; font-size:0.6rem; opacity:0.8;">Download on the</span>
+                <span>App Store</span>
+              </div>
+            </button>
+            <button class="store-btn">
+              <i class="fa-brands fa-google-play"></i>
+              <div>
+                <span style="display:block; font-size:0.6rem; opacity:0.8;">GET IT ON</span>
+                <span>Google Play</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-links-grid">
+          <div class="link-group">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">Press</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="link-group">
+            <h4>Discover</h4>
+            <a href="#">Events in Delhi</a>
+            <a href="#">Events in Mumbai</a>
+            <a href="#">Events in Bangalore</a>
+            <a href="#">Concerts</a>
+            <a href="#">Sports</a>
+          </div>
+          <div class="link-group">
+            <h4>For Organizers</h4>
+            <a href="#">List Your Event</a>
+            <a href="#">Partner with Us</a>
+            <a href="#">Pricing</a>
+            <a href="#">Venue Managers</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          By continuing past this page, you agree to our <a href="#" style="text-decoration:underline;">Terms of
+            Service</a>.
+          <br>© 2026 District Entertainment Pvt Ltd. All rights reserved.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <div class="m-price">
+      <small>Starting from</small>
+      <strong class="price-show show-1000">₹1,000</strong>
+      <strong class="price-show show-4999">₹4,999</strong>
+    </div>
+    <button class="cta-btn small">Book Now</button>
+  </div>
+
+</body>
+
+</html>
