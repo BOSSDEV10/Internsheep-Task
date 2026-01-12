@@ -5,36 +5,43 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/** * CONFIGURATION
- * Set your GitHub details here.
- */
+/** * CONFIGURATION */
 const GITHUB_USERNAME = 'BOSSDEV10'; 
 const REPO_NAME = 'Internsheep-Task';
 const BASE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`;
 
-// Use 'public/Tasks' as source but links will remove 'public'
 const TASK_DIR = path.join(__dirname, 'Tasks'); 
-const OUTPUT_FILE = path.join(__dirname, 'tasks.json'); // Generates one single JSON file
+const OUTPUT_FILE = path.join(__dirname, 'tasks.json');
 
 /**
  * Removes numbers and capitalizes (e.g., "video0" -> "Video")
  */
 function formatDisplayName(str) {
-    let clean = str.replace(/\d+/g, ''); // Remove all numbers
+    let clean = str.replace(/\d+/g, ''); 
     return clean.charAt(0).toUpperCase() + clean.slice(1);
 }
 
 /**
- * Parses dates for sorting
+ * Parses dates for sorting from "DD-Mon-YYYY" format
  */
-function getTaskDate(folderName, filePath) {
-    const parts = folderName.split('-');
-    const parsedDate = new Date(`${parts[1]} ${parts[0]} ${parts[2]}`);
-    return !isNaN(parsedDate.getTime()) ? parsedDate : fs.statSync(filePath).birthtime;
+function parseFolderDate(pathSegments) {
+    // We look for the segment immediately following 'Tasks'
+    const taskIndex = pathSegments.indexOf('Tasks');
+    if (taskIndex === -1 || taskIndex === pathSegments.length - 1) return null;
+
+    const dateStr = pathSegments[taskIndex + 1];
+    const parts = dateStr.split('-');
+    
+    if (parts.length === 3) {
+        // Formats to "Mon DD YYYY" which is reliable for the Date constructor
+        const date = new Date(`${parts[1]} ${parts[0]} ${parts[2]}`);
+        return isNaN(date.getTime()) ? null : date;
+    }
+    return null;
 }
 
 /**
- * Recursive scan
+ * Recursive scan to find HTML tasks
  */
 function scanTasks(dir, currentRoute = 'Tasks', seenGroups = new Set()) {
     let results = [];
@@ -50,19 +57,18 @@ function scanTasks(dir, currentRoute = 'Tasks', seenGroups = new Set()) {
             results = results.concat(scanTasks(fullPath, `${currentRoute}/${item}`, seenGroups));
         } else if (path.extname(item) === '.html') {
             const fileName = item.replace('.html', '');
-            const baseName = fileName.replace(/\d+/g, '').toLowerCase(); // Grouping key
+            const baseName = fileName.replace(/\d+/g, '').toLowerCase(); 
             
-            // Only add the first instance of a similar task (e.g., only video0, ignore video1-4)
             if (!seenGroups.has(baseName)) {
                 seenGroups.add(baseName);
 
                 const pathSegments = currentRoute.split('/');
-                const folderName = pathSegments[pathSegments.length - 1];
+                // Accurately find the date from the folder hierarchy
+                const dateValue = parseFolderDate(pathSegments) || fs.statSync(fullPath).birthtime;
 
                 results.push({
                     displayName: formatDisplayName(fileName),
-                    dateValue: getTaskDate(folderName, fullPath),
-                    // Generates clean link: https://user.github.io/repo/Tasks/date/file.html
+                    dateValue: dateValue,
                     link: `${BASE_URL}/${currentRoute}/${item}`.replace(/\/+/g, '/').replace('https:/', 'https://')
                 });
             }
@@ -76,7 +82,8 @@ try {
     
     let rawTasks = scanTasks(TASK_DIR);
 
-    // Sort Oldest to Newest
+    // ASCENDING ORDER SORT (Oldest to Newest)
+    // This compares the parsed Date objects directly
     rawTasks.sort((a, b) => a.dateValue - b.dateValue);
 
     const taskList = rawTasks.map((task, index) => ({
@@ -84,10 +91,11 @@ try {
         link: task.link
     }));
 
-    // Save as a single .json file
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(taskList, null, 4));
     
     console.log(`✅ Success! Created 'tasks.json' with ${taskList.length} unique tasks.`);
+    console.log("First Task Date:", rawTasks[0]?.dateValue.toDateString());
+    console.log("Last Task Date:", rawTasks[rawTasks.length - 1]?.dateValue.toDateString());
 } catch (error) {
     console.error("❌ Error:", error.message);
 }
