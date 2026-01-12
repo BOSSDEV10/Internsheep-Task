@@ -485,6 +485,7 @@ p {
   color: var(--primary);
   background: white;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 8px;
   transition: background 0.2s;
