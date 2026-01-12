@@ -6,36 +6,37 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /** * CONFIGURATION
- * 1. Ensure GITHUB_USERNAME and REPO_NAME are exactly as they appear in your URL.
- * 2. If you are using a custom domain, replace the BASE_URL entirely.
+ * Set your GitHub details here.
  */
-const GITHUB_USERNAME = 'YOUR_USERNAME'; 
-const REPO_NAME = 'YOUR_REPO_NAME';
-const BASE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`.replace(/\/$/, ""); // Remove trailing slash if exists
+const GITHUB_USERNAME = 'BOSSDEV10'; 
+const REPO_NAME = 'Internsheep-Task';
+const BASE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`;
 
-const TASK_DIR = path.join(__dirname, 'public', 'Task');
-const OUTPUT_FILE = path.join(__dirname, 'src', 'utils', 'taskList.js');
+// Use 'public/Tasks' as source but links will remove 'public'
+const TASK_DIR = path.join(__dirname, 'Tasks'); 
+const OUTPUT_FILE = path.join(__dirname, 'tasks.json'); // Generates one single JSON file
 
+/**
+ * Removes numbers and capitalizes (e.g., "video0" -> "Video")
+ */
+function formatDisplayName(str) {
+    let clean = str.replace(/\d+/g, ''); // Remove all numbers
+    return clean.charAt(0).toUpperCase() + clean.slice(1);
+}
+
+/**
+ * Parses dates for sorting
+ */
 function getTaskDate(folderName, filePath) {
     const parts = folderName.split('-');
     const parsedDate = new Date(`${parts[1]} ${parts[0]} ${parts[2]}`);
     return !isNaN(parsedDate.getTime()) ? parsedDate : fs.statSync(filePath).birthtime;
 }
 
-function getTitleFromHTML(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, 'utf8');
-        const match = content.match(/<title>(.*?)<\/title>/i);
-        return match ? match[1].trim() : null;
-    } catch { return null; }
-}
-
-function formatDisplayName(str) {
-    let clean = str.replace(/\d+$/, ''); 
-    return clean.charAt(0).toUpperCase() + clean.slice(1);
-}
-
-function scanTasks(dir, baseRoute = '/Task', seenGroups = new Set()) {
+/**
+ * Recursive scan
+ */
+function scanTasks(dir, currentRoute = 'Tasks', seenGroups = new Set()) {
     let results = [];
     if (!fs.existsSync(dir)) return results;
 
@@ -46,23 +47,23 @@ function scanTasks(dir, baseRoute = '/Task', seenGroups = new Set()) {
         const isDirectory = fs.statSync(fullPath).isDirectory();
 
         if (isDirectory) {
-            results = results.concat(scanTasks(fullPath, `${baseRoute}/${item}`, seenGroups));
+            results = results.concat(scanTasks(fullPath, `${currentRoute}/${item}`, seenGroups));
         } else if (path.extname(item) === '.html') {
             const fileName = item.replace('.html', '');
-            const groupKey = fileName.replace(/\d+$/, '').toLowerCase();
+            const baseName = fileName.replace(/\d+/g, '').toLowerCase(); // Grouping key
             
-            if (!seenGroups.has(groupKey) || !/\d$/.test(fileName)) {
-                seenGroups.add(groupKey);
-                const pathSegments = baseRoute.split('/');
+            // Only add the first instance of a similar task (e.g., only video0, ignore video1-4)
+            if (!seenGroups.has(baseName)) {
+                seenGroups.add(baseName);
+
+                const pathSegments = currentRoute.split('/');
                 const folderName = pathSegments[pathSegments.length - 1];
-                const displayName = getTitleFromHTML(fullPath) || formatDisplayName(fileName);
 
                 results.push({
-                    displayName: displayName,
+                    displayName: formatDisplayName(fileName),
                     dateValue: getTaskDate(folderName, fullPath),
-                    // Ensure the route starts with a single slash
-                    link: `${BASE_URL}/${baseRoute.replace(/^\//, "")}/${item}`.replace(/\/+/g, '/')
-                        .replace('https:/', 'https://') // Fix double-slash cleanup for protocol
+                    // Generates clean link: https://user.github.io/repo/Tasks/date/file.html
+                    link: `${BASE_URL}/${currentRoute}/${item}`.replace(/\/+/g, '/').replace('https:/', 'https://')
                 });
             }
         }
@@ -71,20 +72,22 @@ function scanTasks(dir, baseRoute = '/Task', seenGroups = new Set()) {
 }
 
 try {
-    let tasks = scanTasks(TASK_DIR);
-    tasks.sort((a, b) => a.dateValue - b.dateValue);
+    console.log("📂 Scanning tasks...");
+    
+    let rawTasks = scanTasks(TASK_DIR);
 
-    const finalTaskList = tasks.map((task, index) => ({
+    // Sort Oldest to Newest
+    rawTasks.sort((a, b) => a.dateValue - b.dateValue);
+
+    const taskList = rawTasks.map((task, index) => ({
         name: `Task ${index + 1}: ${task.displayName}`,
         link: task.link
     }));
 
-    const outDir = path.dirname(OUTPUT_FILE);
-    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-
-    const fileContent = `export const taskList = ${JSON.stringify(finalTaskList, null, 4)};\n\nexport default taskList;`;
-    fs.writeFileSync(OUTPUT_FILE, fileContent);
-    console.log(`✅ Success! Links generated for ${BASE_URL}`);
+    // Save as a single .json file
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(taskList, null, 4));
+    
+    console.log(`✅ Success! Created 'tasks.json' with ${taskList.length} unique tasks.`);
 } catch (error) {
     console.error("❌ Error:", error.message);
 }
