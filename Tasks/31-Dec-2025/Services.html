@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services We Provide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. General Reset & Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none; /* Removes default link underlines */
+        }
+
+        body {
+            /* A slightly deeper background color for better contrast with white cards */
+            background-color: #f0f4f8; 
+            color: #333;
+        }
+
+        /* --- 2. Section Container --- */
+        .services-section {
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. Services Header Area (Enhanced) --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h4 {
+            color: #007bff;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Adds small accent lines next to the small header for style */
+        .section-header h4::before,
+        .section-header h4::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background-color: #007bff;
+            opacity: 0.3;
+        }
+        .section-header h4::before { left: -40px; }
+        .section-header h4::after { right: -40px; }
+
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1a2a3a; /* Darker shade */
+        }
+
+        .section-header p {
+            color: #6c757d;
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* --- 4. Services Cards Layout (Grid) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px;
+        }
+
+        /* --- 5. Individual Card Design (Stylized) --- */
+        .service-card {
+            background: #ffffff;
+            padding: 50px 35px;
+            border-radius: 15px; /* Softer corners */
+            text-align: center;
+            /* Softer, multi-layered shadow for depth */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 1px 8px rgba(0,0,0,0.02);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden; /* Ensures content stays inside rounded corners */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Subtle Accent Bar at the top of the card */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #00d4ff);
+            transform: scaleX(0); /* Hidden by default */
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+
+        /* Icon Styling (Enhanced) */
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            /* Subtle gradient background instead of solid color */
+            background: linear-gradient(135deg, #eaf4ff 0%, #dbeeff 100%);
+            color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px auto;
+            font-size: 32px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a2a3a;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px; /* Space for the button */
+            flex-grow: 1; /* Ensures buttons align if text lengths vary slightly */
+        }
+
+        /* --- 6. The Cool Read More Button --- */
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+            border-radius: 50px; /* Pill shape */
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn i {
+            margin-left: 10px;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        /* --- 7. Hover Effects (The Magic) --- */
+        
+        /* Card Hover */
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Reveal accent bar on hover */
+        .service-card:hover::before {
+            transform: scaleX(1); 
+        }
+
+        /* Icon Hover */
+        .service-card:hover .icon-wrapper {
+            background: linear-gradient(135deg, #007bff 0%, #0062cc 100%);
+            color: white;
+            transform: scale(1.1) rotate(5deg); /* Slight pop and twist */
+        }
+
+        /* Button Hover */
+        .read-more-btn:hover {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Icon animation inside button */
+        .read-more-btn:hover i {
+            transform: translateX(5px); /* Moves arrow right */
+        }
+
+
+        /* --- 8. Responsiveness --- */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+             .section-header h2 { font-size: 36px; }
+        }
+
+        @media (max-width: 768px) {
+             .services-section { padding: 60px 5%; }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+             /* Hide the accent lines on mobile for cleaner look */
+            .section-header h4::before, .section-header h4::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="services-section">
+        <div class="section-header">
+            <h4>SERVICES</h4>
+            <h2>Services We Provide</h2>
+            <p>We deliver cutting-edge technology solutions designed to elevate your business. Our expert team covers the full spectrum of digital innovation.</p>
+        </div>
+
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>We build responsive, high-performance websites using the latest technologies to ensure your business stands out online.</p>
+                <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3>Mobile Apps</h3>
+                <p>Custom mobile applications for iOS and Android that provide seamless user experiences and robust functionality.</p>
+                 <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>Our design team creates intuitive and visually stunning interfaces that engage users and improve conversion rates.</p>
+                 <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h3>Digital Marketing</h3>
+                <p>Strategic marketing campaigns including SEO, PPC, and social media to drive traffic and grow your brand visibility.</p>
+                 <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Cloud Solutions</h3>
+                <p>Secure and scalable cloud computing services to help you manage data, reduce costs, and increase flexibility.</p>
+                 <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h3>Data Analytics</h3>
+                <p>Transform raw data into actionable insights with our advanced analytics and business intelligence solutions.</p>
+                 <a href="#" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

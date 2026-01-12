@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charminar</title>
+    <style>
+        /* ===================================================== */
+        /* ROOT TOKENS */
+        /* ===================================================== */
+
+        :root {
+            --primary: #2563eb;
+            --surface: #ffffff;
+            --bg: #f8fafc;
+
+            --text-main: #0f172a;
+            --text-muted: #475569;
+
+            --radius-lg: 30px;
+            --radius-md: 15px;
+            --radius-sm: 10px;
+
+            --ease-smooth: cubic-bezier(.22, .61, .36, 1);
+
+            /* Rating hierarchy colors */
+            --rate-excellent: #16a34a;
+            --rate-good: #2563eb;
+            --rate-average: #ca8a04;
+            --rate-low: #dc2626;
+        }
+
+        /* ===================================================== */
+        /* RESET */
+        /* ===================================================== */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* corner-shape: squircle; */
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at top, #eef2ff, var(--bg));
+            font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+            animation: pageFade 0.6s ease;
+            overflow: hidden;
+        }
+
+        @keyframes pageFade {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===================================================== */
+        /* CARD */
+        /* ===================================================== */
+
+        .card {
+            width: 100%;
+            max-width: 390px;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow:
+                0 10px 25px rgba(15, 23, 42, 0.08),
+                0 30px 60px rgba(15, 23, 42, 0.06);
+            transition: transform 0.45s var(--ease-smooth),
+                box-shadow 0.45s var(--ease-smooth);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 20px 45px rgba(15, 23, 42, 0.12),
+                0 40px 80px rgba(15, 23, 42, 0.10);
+        }
+
+        /* ===================================================== */
+        /* MEDIA */
+        /* ===================================================== */
+
+        .media {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            transition: transform 0.9s var(--ease-smooth),
+                filter 0.6s ease;
+        }
+
+        .card:hover .media img {
+            transform: scale(1.12);
+            filter: saturate(1.05);
+        }
+
+        .media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: linear-gradient(to top,
+                    rgba(15, 23, 42, 0.55),
+                    rgba(15, 23, 42, 0.15),
+                    transparent);
+        }
+
+        /* ===================================================== */
+        /* ⭐ RATING — COLOR HIERARCHY SYSTEM */
+        /* ===================================================== */
+
+        .rating {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 700;
+
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 4px 12px rgba(15, 23, 42, 0.15);
+
+            color: var(--text-main);
+            z-index: 9;
+        }
+
+        /* Star */
+        .rating::before {
+            content: "★";
+            font-size: 14px;
+        }
+
+        /* Rating levels (apply ONE class in HTML) */
+        .rating.excellent {
+            color: var(--rate-excellent);
+        }
+
+        .rating.excellent::before {
+            color: var(--rate-excellent);
+        }
+
+        .rating.good {
+            color: var(--rate-good);
+        }
+
+        .rating.good::before {
+            color: var(--rate-good);
+        }
+
+        .rating.average {
+            color: var(--rate-average);
+        }
+
+        .rating.average::before {
+            color: var(--rate-average);
+        }
+
+        .rating.low {
+            color: var(--rate-low);
+        }
+
+        .rating.low::before {
+            color: var(--rate-low);
+        }
+
+        /* ===================================================== */
+        /* CONTENT */
+        /* ===================================================== */
+
+        .content {
+            padding: 20px 20px 8px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            letter-spacing: -0.3px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .description {
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        /* ===================================================== */
+        /* DETAILS */
+        /* ===================================================== */
+
+        .details {
+            display: grid;
+            row-gap: 10px;
+            font-size: 14px;
+        }
+
+        .details p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 4px;
+            border-radius: var(--radius-sm);
+            color: var(--text-muted);
+            transition: background 0.25s ease,
+                transform 0.25s ease,
+                padding 0.25s ease;
+        }
+
+        .details p:hover {
+            background: #eef2ff;
+            padding: 6px 10px;
+            transform: translateX(2px);
+        }
+
+        .details span {
+            font-weight: 600;
+            padding: 5px 10px;
+        }
+
+        /* ===================================================== */
+        /* VALUE-ONLY HOVER BACKGROUNDS (CROWD + PRICE) */
+        /* ===================================================== */
+
+        /* Base badge behavior */
+        .crowd-low,
+        .crowd-medium,
+        .crowd-high,
+        .crowd-very-high,
+        .fee {
+            padding: 2px 8px;
+            border-radius: 999px;
+            transition: background-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        /* ---- CROWD VALUE BACKGROUNDS ---- */
+
+        /* Low */
+        .crowd-low {
+            background: rgb(22, 163, 74);
+            color: var(--surface);
+        }
+
+        /* Medium */
+        .crowd-medium {
+            background: rgb(243, 189, 42);
+            color: var(--surface);
+        }
+
+        /* High */
+        .crowd-high {
+            background: rgb(196, 78, 38);
+            color: var(--surface);
+        }
+
+        /* Very High */
+        .crowd-very-high {
+            background: rgb(220, 38, 38);
+            color: var(--surface);
+        }
+
+        /* ---- PRICE VALUE BACKGROUNDS ---- */
+
+        /* Free */
+        .fee-free {
+            background: rgba(22, 163, 74, 0.9);
+            color: var(--surface);
+        }
+
+        /* Paid */
+        .fee-paid {
+            background: rgba(220, 38, 38, 0.9);
+            color: var(--surface);
+        }
+
+        /* ===================================================== */
+        /* NAV */
+        /* ===================================================== */
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 20px 22px;
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+            transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(37, 99, 235, 0.35);
+        }
+
+        .nav a.disabled {
+            background: #e2e8f0;
+            color: #64748b;
+            box-shadow: none;
+            pointer-events: none;
+        }
+
+
+        /* ===================================================== */
+        /* RESPONSIVE */
+        /* ===================================================== */
+
+        @media (min-width: 768px) {
+            .card {
+                max-width: 420px;
+            }
+
+            .content h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="media">
+            <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=900&q=80"
+                alt="Charminar">
+            <div class="rating average">3.9</div>
+        </div>
+
+        <div class="content">
+            <h2>Charminar</h2>
+            <p class="description">
+                A historic monument and mosque located in the heart of
+                Hyderabad’s old city.
+            </p>
+
+            <div class="details">
+                <p><span>Location</span> Hyderabad, Telangana</p>
+                <p><span>Timings</span> 9:30 AM – 5:30 PM</p>
+                <p><span>Entry Fee</span> <span class="fee fee-paid">₹20</span></p>
+                <p><span>Crowd Level</span> <span class="crowd-high">High</span></p>
+            </div>
+        </div>
+
+        <div class="nav">
+            <a href="place4.html">Previous</a>
+            <a class="disabled">Next</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

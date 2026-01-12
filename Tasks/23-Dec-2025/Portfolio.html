@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Academic Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #f4f6f8;
+            --surface: #ffffff;
+            --card: #f9fafb;
+            --text-main: #111827;
+            --text-muted: #374151;
+            --border: #e5e7eb;
+            --accent1: #2563eb;
+            --accent2: #7c3aed;
+            --accent3: #06b6d4;
+            --shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.08);
+            --radius: 0.9rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Container */
+        .container {
+            width: min(94%, 62rem);
+            margin: clamp(2.5rem, 6vw, 4rem) auto;
+            background: var(--surface);
+            padding: clamp(1.75rem, 4vw, 3.25rem);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        /* Gradient Accent */
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 0.35rem;
+            border-radius: var(--radius) var(--radius) 0 0;
+            background: linear-gradient(90deg,
+                    var(--accent1),
+                    var(--accent2),
+                    var(--accent3));
+            background-size: 300% 100%;
+            animation: gradientMove 6s linear infinite;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(1.3rem, 3.2vw, 1.55rem);
+            margin: 3rem 0 1.2rem;
+            padding-left: 0.75rem;
+            border-left: 0.3rem solid var(--accent1);
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--accent1);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            background: var(--card);
+            padding: 1.6rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.8rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Profile */
+        .profile-photo {
+            display: flex;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .profile-photo img {
+            width: 9rem;
+            height: 9rem;
+            border-radius: 50%;
+            border: 0.35rem solid var(--surface);
+            box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== SKILLS (FIXED) ===== */
+        .skill {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .skill-bar {
+            height: 0.65rem;
+            background: #e5e7eb;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border-radius: 999px;
+            animation: fillBar 1.5s ease forwards;
+        }
+
+        .skill-fill[data-level="90"] {
+            --level: 90%;
+        }
+
+        .skill-fill[data-level="85"] {
+            --level: 85%;
+        }
+
+        .skill-fill[data-level="80"] {
+            --level: 80%;
+        }
+
+        .skill-fill[data-level="70"] {
+            --level: 70%;
+        }
+
+        /* ===== EDUCATION ===== */
+        .education {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .edu-card {
+            padding: 1.4rem;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .edu-year {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent1);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fillBar {
+            to {
+                width: var(--level);
+            }
+        }
+
+        @keyframes gradientMove {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>Parthiv Chhayani</h1>
+            <p style="text-align:center;">Web Developer · Diploma in Computer Engineering</p>
+        </header>
+
+        <div class="profile-photo">
+            <img src="Picture.jpg" alt="Profile photo">
+        </div>
+
+        <section>
+            <h2>About Me</h2>
+            <p>
+                Motivated web developer with hands-on experience in HTML, CSS, JavaScript,
+                React, and Laravel. Passionate about building clean and user-focused applications.
+            </p>
+        </section>
+
+        <section>
+            <h2>Skills & Areas of Interest</h2>
+
+            <div class="skill">
+                <label>HTML, CSS, JavaScript</label>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-level="90"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <label>Laravel</label>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-level="85"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <label>React</label>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-level="80"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <label>UI/UX & 3D Modelling</label>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-level="70"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education">
+                <div class="edu-card">
+                    <div class="edu-year">2023 – Present</div>
+                    <strong>Diploma in Computer Engineering</strong><br>
+                    RK University, Rajkot
+                </div>
+                <div class="edu-card">
+                    <div class="edu-year">2011 – 2023</div>
+                    <strong>Primary – Secondary School</strong><br>
+                    Jasdan Private Schools
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:parthivchhayani@gmail.com">parthivchhayani@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong>
+                    <a href="tel:+919773479598">+91 9773479598</a>
+                </div>
+                <div class="contact-item">
+                    <strong>WhatsApp:</strong>
+                    <a href="https://wa.me/919773479598" target="_blank">
+                        +91 97734 79598
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn:</strong>
+                    <a href="www.linkedin.com/in/parthiv-chhayani-61197a395" target="_blank">
+                        www.linkedin.com/in/parthiv-chhayani
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/BOSSDEV10" target="_blank">
+                        https://github.com/BOSSDEV10
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> Jasdan, Rajkot, Gujarat
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            © 2025 Parthiv Chhayani · All rights reserved
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
