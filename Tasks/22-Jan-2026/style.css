@@ -1,0 +1,466 @@
+:root {
+    --netflix-red: #e50914;
+    --dark-bg: #000000;
+    --gray-text: #b3b3b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .3s linear;
+}
+
+body {
+    background: var(--dark-bg);
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.hero-wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/NL-en-20260202-TRIFECTA-perspective_c1a26905-b461-4b9e-8d67-1f4233426d2f_large.jpg') center/cover;
+    z-index: -2;
+    background-repeat: no-repeat;
+    /* transform: scale(1.1); */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%),
+        radial-gradient(50% 100% at 50% 100%, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+    z-index: -1;
+}
+
+/* THE SMILE CURVE */
+.curve-container {
+    position: absolute;
+    bottom: 00px;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+}
+
+.smile-arch {
+    width: 150%;
+    height: 34vh;
+    background: var(--dark-bg);
+    border-top: 4px solid #e50914;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    left: -25%;
+    bottom: 0;
+}
+
+/* --- NAV --- */
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    padding: 24px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    width: 148px;
+    height: 40px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-select-wrapper {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    color: white;
+}
+
+.lang-select-wrapper select {
+    background: transparent;
+    color: white;
+    border: none;
+    font-weight: bold;
+    appearance: none;
+    padding: 2px 18px 2px 2px;
+    cursor: pointer;
+}
+
+.icon,
+.arrow {
+    font-size: 0.8rem;
+    pointer-events: none;
+}
+
+.arrow {
+    font-size: 0.6rem;
+}
+
+.btn-signin {
+    background: var(--netflix-red);
+    color: white;
+    padding: 7px 17px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+/* --- HERO CONTENT --- */
+.hero-content {
+    margin-top: 80px;
+    text-align: center;
+    max-width: 650px;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.cta-text {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+/* --- FORM --- */
+.email-form {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    height: 56px;
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.input-group {
+    position: relative;
+    flex: 1;
+}
+
+.input-group input {
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 22, 22, 0.6);
+    border: 1px solid #666;
+    border-radius: 4px;
+    color: white;
+    padding: 24px 16px 8px;
+    font-size: 1rem;
+    outline: none;
+    backdrop-filter: blur(2px);
+}
+
+.input-group input:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b3b3b3;
+    pointer-events: none;
+    transition: 0.1s ease;
+    font-size: 1rem;
+}
+
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label {
+    top: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.btn-red {
+    background: var(--netflix-red);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    padding: 0 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* --- SECTION GENERAL --- */
+.section-container {
+    position: relative;
+    padding: 4.5rem 10%;
+}
+
+.section-container.sc2{
+    top: -180px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+/* --- CARD NUMBER OVERLAY CAROUSEL (Requested Style) --- */
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    scrollbar-width: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    position: relative;
+    /* Anchor for the number */
+    min-width: 180px;
+    height: 250px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* The Number Styling (On Top of Image) */
+.card-number {
+    position: absolute;
+    bottom: -15px;
+    /* Offset to hang slightly off bottom-left */
+    left: -15px;
+    font-size: 100px;
+    font-family: Impact, sans-serif;
+    font-weight: 900;
+    color: black;
+    -webkit-text-stroke: 2px #595959;
+    /* The Outline */
+    line-height: 1;
+    z-index: 2;
+    /* Ensures it is ON TOP of the image */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    /* Shadow for readability */
+}
+
+/* --- REASONS GRID --- */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.reason-card {
+    padding: 24px 24px 70px;
+    border-radius: 16px;
+    position: relative;
+    min-height: 250px;
+}
+
+.grad-1 {
+    background: linear-gradient(149deg, #192247 0%, #210e17 96%);
+}
+
+.grad-2 {
+    background: linear-gradient(149deg, #23112c 0%, #210e17 96%);
+}
+
+.grad-3 {
+    background: linear-gradient(149deg, #2b1118 0%, #151012 96%);
+}
+
+.grad-4 {
+    background: linear-gradient(149deg, #0f172a 0%, #141016 96%);
+}
+
+.reason-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.reason-card p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.icon-box {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 3rem;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+/* --- FAQ --- */
+details {
+    margin-bottom: 8px;
+    background: #2d2d2d;
+    overflow: hidden;
+}
+
+summary {
+    padding: 24px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    transition: background 0.2s;
+}
+
+summary:hover {
+    background: #414141;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.plus {
+    font-size: 2.5rem;
+    font-weight: 300;
+    transition: transform 0.2s;
+}
+
+details[open] .plus {
+    transform: rotate(45deg);
+}
+
+.ans {
+    padding: 24px;
+    border-top: 1px solid black;
+    font-size: 1.5rem;
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.faq-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 60px 10%;
+    color: var(--gray-text);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.footer-links a {
+    color: inherit;
+    text-decoration: underline;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.footer-lang {
+    margin-bottom: 20px;
+    display: inline-flex;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 960px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .email-form {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .btn-red {
+        width: fit-content;
+        margin: 0 auto;
+        padding: 12px 24px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+    }
+}
