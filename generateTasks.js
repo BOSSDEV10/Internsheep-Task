@@ -5,35 +5,29 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/** * CONFIGURATION */
-const GITHUB_USERNAME = 'BOSSDEV10'; 
+/** CONFIGURATION */
+const GITHUB_USERNAME = 'BOSSDEV10';
 const REPO_NAME = 'Internsheep-Task';
 const BASE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`;
 
-const TASK_DIR = path.join(__dirname, 'Tasks'); 
+const TASK_DIR = path.join(__dirname, 'Tasks');
 const OUTPUT_FILE = path.join(__dirname, 'tasks.json');
 
 /**
- * Removes numbers and capitalizes (e.g., "video0" -> "Video")
+ * Formats names: "BrewHaven" -> "Brew Haven", "task1" -> "Task"
  */
 function formatDisplayName(str) {
-    let clean = str.replace(/\d+/g, ''); 
+    // Adds space before capital letters and removes numbers
+    let clean = str.replace(/([A-Z])/g, ' $1').replace(/\d+/g, '').trim();
     return clean.charAt(0).toUpperCase() + clean.slice(1);
 }
 
 /**
- * Parses dates for sorting from "DD-Mon-YYYY" format
+ * Parses dates or returns a fallback for sorting
  */
-function parseFolderDate(pathSegments) {
-    // We look for the segment immediately following 'Tasks'
-    const taskIndex = pathSegments.indexOf('Tasks');
-    if (taskIndex === -1 || taskIndex === pathSegments.length - 1) return null;
-
-    const dateStr = pathSegments[taskIndex + 1];
-    const parts = dateStr.split('-');
-    
+function parseFolderDate(folderName) {
+    const parts = folderName.split('-');
     if (parts.length === 3) {
-        // Formats to "Mon DD YYYY" which is reliable for the Date constructor
         const date = new Date(`${parts[1]} ${parts[0]} ${parts[2]}`);
         return isNaN(date.getTime()) ? null : date;
     }
@@ -41,35 +35,42 @@ function parseFolderDate(pathSegments) {
 }
 
 /**
- * Recursive scan to find HTML tasks
+ * Scans the Tasks directory
  */
-function scanTasks(dir, currentRoute = 'Tasks', seenGroups = new Set()) {
+function scanTasks(dir) {
     let results = [];
     if (!fs.existsSync(dir)) return results;
 
-    const list = fs.readdirSync(dir);
+    const items = fs.readdirSync(dir);
 
-    for (const item of list) {
+    for (const item of items) {
         const fullPath = path.join(dir, item);
-        const isDirectory = fs.statSync(fullPath).isDirectory();
+        const stats = fs.statSync(fullPath);
 
-        if (isDirectory) {
-            results = results.concat(scanTasks(fullPath, `${currentRoute}/${item}`, seenGroups));
-        } else if (path.extname(item) === '.html') {
-            const fileName = item.replace('.html', '');
-            const baseName = fileName.replace(/\d+/g, '').toLowerCase(); 
-            
-            if (!seenGroups.has(baseName)) {
-                seenGroups.add(baseName);
+        if (stats.isDirectory()) {
+            const folderDate = parseFolderDate(item);
+            let entryPoint = null;
+            let displayName = "";
 
-                const pathSegments = currentRoute.split('/');
-                // Accurately find the date from the folder hierarchy
-                const dateValue = parseFolderDate(pathSegments) || fs.statSync(fullPath).birthtime;
+            // 1. Look for index.html inside the folder first
+            const filesInFolder = fs.readdirSync(fullPath);
+            const indexFile = filesInFolder.find(f => f.toLowerCase() === 'index.html');
+            const anyHtml = filesInFolder.find(f => f.endsWith('.html'));
 
+            if (indexFile) {
+                entryPoint = indexFile;
+                // If it's a named folder like "BrewHaven", use the folder name
+                displayName = folderDate ? formatDisplayName(indexFile.replace('.html', '')) : formatDisplayName(item);
+            } else if (anyHtml) {
+                entryPoint = anyHtml;
+                displayName = formatDisplayName(anyHtml.replace('.html', ''));
+            }
+
+            if (entryPoint) {
                 results.push({
-                    displayName: formatDisplayName(fileName),
-                    dateValue: dateValue,
-                    link: `${BASE_URL}/${currentRoute}/${item}`.replace(/\/+/g, '/').replace('https:/', 'https://')
+                    displayName: displayName,
+                    dateValue: folderDate || stats.birthtime, // Use folder date or creation time
+                    link: `${BASE_URL}/Tasks/${item}/${entryPoint}`.replace(/\/+/g, '/').replace('https:/', 'https://')
                 });
             }
         }
@@ -78,12 +79,11 @@ function scanTasks(dir, currentRoute = 'Tasks', seenGroups = new Set()) {
 }
 
 try {
-    console.log("📂 Scanning tasks...");
-    
+    console.log("📂 Scanning tasks and named folders...");
+
     let rawTasks = scanTasks(TASK_DIR);
 
-    // ASCENDING ORDER SORT (Oldest to Newest)
-    // This compares the parsed Date objects directly
+    // Sort: Oldest to Newest
     rawTasks.sort((a, b) => a.dateValue - b.dateValue);
 
     const taskList = rawTasks.map((task, index) => ({
@@ -92,10 +92,12 @@ try {
     }));
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(taskList, null, 4));
-    
-    console.log(`✅ Success! Created 'tasks.json' with ${taskList.length} unique tasks.`);
-    console.log("First Task Date:", rawTasks[0]?.dateValue.toDateString());
-    console.log("Last Task Date:", rawTasks[rawTasks.length - 1]?.dateValue.toDateString());
+
+    console.log(`✅ Success! Generated 'tasks.json' with ${taskList.length} tasks.`);
+    if (taskList.length > 0) {
+        console.log(`First entry: ${taskList[0].name}`);
+        console.log(`Last entry: ${taskList[taskList.length - 1].name}`);
+    }
 } catch (error) {
     console.error("❌ Error:", error.message);
 }
