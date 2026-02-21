@@ -1,0 +1,173 @@
+/* ============================================================
+   BrewHaven — faq.css
+   ============================================================ */
+
+.faq-container {
+    max-width: 1100px;
+}
+
+.faq-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+/* Sidebar */
+.faq-sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+}
+
+.faq-sidebar h3 {
+    font-family: var(--ff-heading);
+    font-size: 1rem;
+    color: var(--clr-espresso);
+    margin-bottom: 1rem;
+    padding-bottom: .6rem;
+    border-bottom: 2px solid var(--clr-latte);
+}
+
+.faq-cat-links {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin-bottom: 2rem;
+}
+
+.faq-cat-links a {
+    display: block;
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--clr-mocha);
+    padding: .55rem .85rem;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid transparent;
+    transition: all var(--trans);
+}
+
+.faq-cat-links a:hover {
+    background: var(--clr-cream);
+    color: var(--clr-caramel);
+    border-left-color: var(--clr-caramel);
+}
+
+.faq-contact-box {
+    background: var(--clr-cream);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.faq-contact-box p {
+    font-size: .85rem;
+    color: var(--clr-mocha);
+    margin-bottom: .75rem;
+}
+
+/* Category headers */
+.faq-category-header {
+    font-family: var(--ff-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--clr-espresso);
+    padding: 1.25rem 0 .6rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid var(--clr-latte);
+    letter-spacing: .02em;
+}
+
+.faq-category-header:first-child {
+    margin-top: 0;
+}
+
+/* Accordion */
+.accordion-item {
+    border-bottom: 1px solid var(--clr-latte);
+    overflow: hidden;
+}
+
+.accordion-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--clr-espresso);
+    transition: color var(--trans);
+}
+
+.accordion-trigger:hover {
+    color: var(--clr-caramel);
+}
+
+.accordion-trigger span:first-child {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.accordion-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--clr-cream);
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--clr-caramel);
+    transition: transform var(--trans), background var(--trans);
+}
+
+.accordion-item.open .accordion-icon {
+    background: var(--clr-caramel);
+    color: var(--clr-white);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .45s cubic-bezier(.4, 0, .2, 1);
+}
+
+.accordion-body p {
+    padding: 0 0 1.25rem 0;
+    font-size: .9rem;
+    color: var(--clr-mocha);
+    line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+    .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .faq-sidebar {
+        position: static;
+    }
+
+    .faq-cat-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .faq-cat-links a {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .faq-cat-links a:hover {
+        border-left: none;
+        border-bottom-color: var(--clr-caramel);
+    }
+}

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="BrewHaven Gallery – explore stunning photos of our café interior, handcrafted drinks, food, and events." />
+    <title>Gallery — BrewHaven</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/gallery.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">☕</div><span class="logo-text">Brew<span>Haven</span></span>
+            </a>
+                                    <nav class="site-nav" role="navigation" aria-label="Main navigation"><a href="index.html">Home</a><div class="nav-item"><a href="menu.html">Menu <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="menu.html#coffee"><i class="fa fa-mug-hot"></i> Coffee</a><a href="menu.html#tea"><i class="fa fa-leaf"></i> Tea</a><a href="menu.html#snacks"><i class="fa fa-bread-slice"></i> Snacks</a><a href="menu.html#desserts"><i class="fa fa-cake-candles"></i> Desserts</a><div class="dd-divider"></div><a href="menu.html#specials"><i class="fa fa-star"></i> Specials</a></div></div><div class="nav-item"><a href="about.html">About <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="about.html#story"><i class="fa fa-book-open"></i> Our Story</a><a href="about.html#team"><i class="fa fa-users"></i> Our Team</a><a href="about.html#philosophy"><i class="fa fa-seedling"></i> Philosophy</a></div></div><div class="nav-item"><a href="gallery.html">Discover <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="gallery.html"><i class="fa fa-images"></i> Gallery</a><a href="offers.html"><i class="fa fa-tag"></i> Offers</a><a href="reviews.html"><i class="fa fa-star-half-stroke"></i> Reviews</a></div></div><div class="nav-item"><a href="events.html">Events <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="events.html#upcoming-events"><i class="fa fa-calendar-check"></i> Upcoming</a><a href="events.html#past-events"><i class="fa fa-clock-rotate-left"></i> Past Events</a></div></div><div class="nav-item"><a href="contact.html">Contact <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="contact.html#contact-main"><i class="fa fa-envelope"></i> Send Message</a><a href="contact.html#visit"><i class="fa fa-map-location-dot"></i> Find Us</a><div class="dd-divider"></div><a href="faq.html"><i class="fa fa-circle-question"></i> FAQ</a></div></div></nav>
+            <a href="contact.html#visit" class="btn-cta"><i class="fa fa-location-dot"></i> Visit Us Today</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mobileNav"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+            <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="menu.html#coffee" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Coffee</a><a href="menu.html#tea" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Tea</a><a href="menu.html#snacks" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Snacks &amp; Desserts</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="offers.html">Offers</a><a href="reviews.html">Reviews</a><a href="events.html">Events</a><a href="contact.html">Contact</a><a href="faq.html" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; FAQ</a><a href="contact.html#visit" class="btn btn-primary">Visit Us Today</a></nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-bg"
+            style="background-image:url('assets/images/cafe-interior.jpg')">
+        </div>
+        <div class="page-hero-content">
+            <span class="page-hero-label">Visual Diary</span>
+            <h1 class="page-hero-title">Our Gallery</h1>
+            <p class="page-hero-sub">A curated collection of moments, brews, and vibes from inside BrewHaven.</p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery-section">
+        <div class="container">
+
+            <!-- Filter Tabs -->
+            <div class="gallery-tabs reveal">
+                <button class="gallery-tab active" data-gfilter="all" id="gtab-all">All</button>
+                <button class="gallery-tab" data-gfilter="interior" id="gtab-interior">🪑 Interior</button>
+                <button class="gallery-tab" data-gfilter="drinks" id="gtab-drinks">☕ Drinks</button>
+                <button class="gallery-tab" data-gfilter="food" id="gtab-food">🍰 Food</button>
+                <button class="gallery-tab" data-gfilter="events" id="gtab-events">🎵 Events</button>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="gallery-masonry" id="galleryGrid">
+
+                <div class="gallery-item tall" data-gcat="interior">
+                    <img src="assets/images/cafe-interior.jpg"
+                        alt="BrewHaven cozy interior" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Café Interior</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="drinks">
+                    <img src="assets/images/cappuccino.jpg"
+                        alt="Cappuccino art" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Cappuccino</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="food">
+                    <img src="assets/images/croissant.jpg"
+                        alt="Butter Croissant" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Butter Croissant</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item wide" data-gcat="interior">
+                    <img src="assets/images/cafe-hero.jpg"
+                        alt="BrewHaven interior ambience" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Main Seating Area</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-gcat="drinks">
+                    <img src="assets/images/cold-brew.jpg" alt="Cold Brew"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Cold Brew</span></div>
+                </div>
+
+                <div class="gallery-item tall" data-gcat="events">
+                    <img src="assets/images/jazz-night.jpg" alt="Jazz Night"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Jazz Night</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="drinks">
+                    <img src="assets/images/matcha-latte.jpg" alt="Matcha Latte"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Matcha Latte</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="food">
+                    <img src="assets/images/cheesecake.jpg" alt="Cheesecake"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>NY Cheesecake</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="interior">
+                    <img src="assets/images/barista.jpg"
+                        alt="Barista counter" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Barista Counter</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="events">
+                    <img src="assets/images/coffee-tasting.jpg"
+                        alt="Coffee workshop" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Coffee Tasting
+                            Workshop</span></div>
+                </div>
+
+                <div class="gallery-item wide" data-gcat="drinks">
+                    <img src="assets/images/latte-art.jpg"
+                        alt="Latte art morning" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Morning Latte Art</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-gcat="food">
+                    <img src="assets/images/sandwich.jpg"
+                        alt="Grilled sandwich" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Grilled Sandwich</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-gcat="events">
+                    <img src="assets/images/latte-art-workshop.jpg"
+                        alt="Latte Art Workshop" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Latte Art Workshop</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-gcat="interior">
+                    <img src="assets/images/coffee-beans.jpg"
+                        alt="Coffee beans setup" data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Our Coffee Beans</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-gcat="drinks">
+                    <img src="assets/images/hazelnut-mocha.jpg" alt="Mocha coffee"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Hazelnut Mocha</span></div>
+                </div>
+
+                <div class="gallery-item" data-gcat="food">
+                    <img src="assets/images/tiramisu.jpg" alt="Tiramisu"
+                        data-lightbox loading="lazy" />
+                    <div class="gallery-item-overlay"><i class="fa fa-expand-alt"></i><span>Classic Tiramisu</span>
+                    </div>
+                </div>
+
+            </div><!-- /gallery-masonry -->
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <button class="lb-close" aria-label="Close lightbox">&times;</button>
+        <button class="lb-prev" aria-label="Previous image">&#8249;</button>
+        <button class="lb-next" aria-label="Next image">&#8250;</button>
+        <img class="lb-img" src="" alt="Gallery image enlarged" />
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">☕</div><span class="logo-text">Brew<span>Haven</span></span>
+                </a>
+                <p style="margin-top:1rem">BrewHaven is a premium coffee destination serving handcrafted beverages and
+                    delicious food in a cozy atmosphere.</p>
+                <div class="social-links" style="margin-top:1.25rem">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a class="active" href="gallery.html">Gallery</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="footer-hours">
+                    <li>Mon – Fri <span>8 AM – 10 PM</span></li>
+                    <li>Sat – Sun <span>9 AM – 11 PM</span></li>
+                    <li>Public Holidays <span>10 AM – 8 PM</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa fa-location-dot"></i> 42 Brew Lane, Koramangala, Bengaluru – 560034</li>
+                    <li><i class="fa fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa fa-envelope"></i> hello@brewhaven.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BrewHaven. All rights reserved.</span>
+            <span>Made with ☕ &amp; ❤️ &nbsp;|&nbsp; <a href="faq.html">FAQ</a></span>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Gallery tab filter
+        document.querySelectorAll('.gallery-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.gfilter;
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    const match = filter === 'all' || item.dataset.gcat === filter;
+                    item.style.display = match ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+

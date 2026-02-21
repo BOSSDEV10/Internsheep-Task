@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BrewHaven menu item details – ingredients, story, and related items." />
+    <title>Menu Item — BrewHaven</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/menu-detail.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="BrewHaven Home">
+                <div class="logo-icon">☕</div>
+                <span class="logo-text">Brew<span>Haven</span></span>
+            </a>
+                                    <nav class="site-nav" role="navigation" aria-label="Main navigation"><a href="index.html">Home</a><div class="nav-item"><a href="menu.html">Menu <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="menu.html#coffee"><i class="fa fa-mug-hot"></i> Coffee</a><a href="menu.html#tea"><i class="fa fa-leaf"></i> Tea</a><a href="menu.html#snacks"><i class="fa fa-bread-slice"></i> Snacks</a><a href="menu.html#desserts"><i class="fa fa-cake-candles"></i> Desserts</a><div class="dd-divider"></div><a href="menu.html#specials"><i class="fa fa-star"></i> Specials</a></div></div><div class="nav-item"><a href="about.html">About <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="about.html#story"><i class="fa fa-book-open"></i> Our Story</a><a href="about.html#team"><i class="fa fa-users"></i> Our Team</a><a href="about.html#philosophy"><i class="fa fa-seedling"></i> Philosophy</a></div></div><div class="nav-item"><a href="gallery.html">Discover <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="gallery.html"><i class="fa fa-images"></i> Gallery</a><a href="offers.html"><i class="fa fa-tag"></i> Offers</a><a href="reviews.html"><i class="fa fa-star-half-stroke"></i> Reviews</a></div></div><div class="nav-item"><a href="events.html">Events <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="events.html#upcoming-events"><i class="fa fa-calendar-check"></i> Upcoming</a><a href="events.html#past-events"><i class="fa fa-clock-rotate-left"></i> Past Events</a></div></div><div class="nav-item"><a href="contact.html">Contact <span class="nav-caret">&#9660;</span></a><div class="nav-dropdown"><a href="contact.html#contact-main"><i class="fa fa-envelope"></i> Send Message</a><a href="contact.html#visit"><i class="fa fa-map-location-dot"></i> Find Us</a><div class="dd-divider"></div><a href="faq.html"><i class="fa fa-circle-question"></i> FAQ</a></div></div></nav>
+            <a href="contact.html#visit" class="btn-cta"><i class="fa fa-location-dot"></i> Visit Us Today</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+            <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="menu.html#coffee" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Coffee</a><a href="menu.html#tea" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Tea</a><a href="menu.html#snacks" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Snacks &amp; Desserts</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="offers.html">Offers</a><a href="reviews.html">Reviews</a><a href="events.html">Events</a><a href="contact.html">Contact</a><a href="faq.html" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; FAQ</a><a href="contact.html#visit" class="btn btn-primary">Visit Us Today</a></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a class="active" href="menu.html">Menu</a>
+                <span>/</span>
+                <span id="breadItem">Item Details</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MENU ITEM DETAIL -->
+    <section class="section" id="itemDetail" style="padding-top:2rem">
+        <div class="container">
+            <div class="item-detail-grid">
+
+                <!-- Image side -->
+                <div class="item-img-wrap reveal anim-scale-in">
+                    <img id="itemImg" src="assets/images/cappuccino.jpg"
+                        alt="Menu item" class="item-img" />
+                    <div class="item-img-badge" id="itemBadge">☕ Coffee</div>
+                </div>
+
+                <!-- Info side -->
+                <div class="item-info reveal">
+                    <span class="section-label" id="itemCategory">Coffee</span>
+                    <h1 class="item-name" id="itemName">Classic Cappuccino</h1>
+                    <div class="item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="item-rating-count">4.9 (248 reviews)</span>
+                    </div>
+                    <div class="item-price-row">
+                        <span class="item-price" id="itemPrice">₹220</span>
+                        <span class="badge badge-green">Available Now</span>
+                    </div>
+
+                    <div class="item-desc-block">
+                        <h3><i class="fa fa-scroll"></i> The Story</h3>
+                        <p class="item-desc" id="itemDesc">
+                            Our Classic Cappuccino is a tribute to the timeless Italian café tradition. We pull a
+                            precise double shot from our signature BrewHaven espresso blend — a mix of Colombian Supremo
+                            and Ethiopian Yirgacheffe — then top it with perfectly steamed microfoam milk and a dusting
+                            of Valrhona cocoa. Every cup is crafted to order by our skilled baristas.
+                        </p>
+                    </div>
+
+                    <div class="item-ingredients-block">
+                        <h3><i class="fa fa-list-ul"></i> Ingredients</h3>
+                        <div class="ingredient-tags" id="itemIngredients">
+                            <span class="ingredient-tag">Espresso</span>
+                            <span class="ingredient-tag">Steamed Milk</span>
+                            <span class="ingredient-tag">Cocoa Foam</span>
+                            <span class="ingredient-tag">Valrhona Cocoa</span>
+                        </div>
+                    </div>
+
+                    <div class="item-details-list">
+                        <div class="item-detail-row">
+                            <i class="fa fa-fire"></i>
+                            <span><strong>Calories:</strong> 120 kcal</span>
+                        </div>
+                        <div class="item-detail-row">
+                            <i class="fa fa-leaf"></i>
+                            <span><strong>Vegan Option:</strong> Available (ask for oat milk)</span>
+                        </div>
+                        <div class="item-detail-row">
+                            <i class="fa fa-globe"></i>
+                            <span><strong>Origin:</strong> Colombian Supremo + Ethiopian Yirgacheffe blend</span>
+                        </div>
+                        <div class="item-detail-row">
+                            <i class="fa fa-mug-hot"></i>
+                            <span><strong>Served:</strong> Hot</span>
+                        </div>
+                    </div>
+
+                    <div class="item-ctas">
+                        <a href="contact.html#visit" class="btn btn-primary">
+                            <i class="fa fa-location-dot"></i> Order at Café
+                        </a>
+                        <a class="active" href="menu.html" class="btn btn-outline">
+                            <i class="fa fa-arrow-left"></i> Back to Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED ITEMS -->
+    <section class="section section-alt related-section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="section-label">You May Also Like</span>
+                <div class="divider center"></div>
+                <h2 class="section-title reveal">Related Items</h2>
+            </div>
+            <div class="grid-4">
+                <a href="menu-detail.html?item=latte" class="card menu-card reveal" data-delay="0">
+                    <img src="assets/images/caramel-latte.jpg"
+                        alt="Caramel Latte" class="card-img" loading="lazy" />
+                    <div class="card-body">
+                        <span class="card-label">Coffee</span>
+                        <h3 class="card-title">Caramel Latte</h3>
+                        <p class="card-text">Espresso · Milk · Caramel Drizzle</p>
+                    </div>
+                    <div class="card-footer"><span class="card-price">₹250</span><span
+                            class="badge badge-green">Available</span></div>
+                </a>
+                <a href="menu-detail.html?item=mocha" class="card menu-card reveal" data-delay="100">
+                    <img src="assets/images/hazelnut-mocha.jpg" alt="Hazelnut Mocha"
+                        class="card-img" loading="lazy" />
+                    <div class="card-body">
+                        <span class="card-label">Coffee</span>
+                        <h3 class="card-title">Hazelnut Mocha</h3>
+                        <p class="card-text">Espresso · Chocolate · Hazelnut · Milk</p>
+                    </div>
+                    <div class="card-footer"><span class="card-price">₹270</span><span
+                            class="badge badge-green">Available</span></div>
+                </a>
+                <a href="menu-detail.html?item=flat-white" class="card menu-card reveal" data-delay="200">
+                    <img src="assets/images/flat-white.jpg" alt="Flat White"
+                        class="card-img" loading="lazy" />
+                    <div class="card-body">
+                        <span class="card-label">Coffee</span>
+                        <h3 class="card-title">Flat White</h3>
+                        <p class="card-text">Double Ristretto · Micro-foam Milk</p>
+                    </div>
+                    <div class="card-footer"><span class="card-price">₹230</span><span
+                            class="badge badge-green">Available</span></div>
+                </a>
+                <a href="menu-detail.html?item=cold-brew" class="card menu-card reveal" data-delay="300">
+                    <img src="assets/images/cold-brew.jpg" alt="Cold Brew"
+                        class="card-img" loading="lazy" />
+                    <div class="card-body">
+                        <span class="card-label">Coffee</span>
+                        <h3 class="card-title">Signature Cold Brew</h3>
+                        <p class="card-text">Single Origin · 18h Steep</p>
+                    </div>
+                    <div class="card-footer"><span class="card-price">₹280</span><span
+                            class="badge badge-green">Available</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">☕</div><span class="logo-text">Brew<span>Haven</span></span>
+                </a>
+                <p style="margin-top:1rem">BrewHaven is a premium coffee destination serving handcrafted beverages and
+                    delicious food in a cozy atmosphere.</p>
+                <div class="social-links" style="margin-top:1.25rem">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="footer-hours">
+                    <li>Mon – Fri <span>8 AM – 10 PM</span></li>
+                    <li>Sat – Sun <span>9 AM – 11 PM</span></li>
+                    <li>Public Holidays <span>10 AM – 8 PM</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa fa-location-dot"></i> 42 Brew Lane, Koramangala, Bengaluru – 560034</li>
+                    <li><i class="fa fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa fa-envelope"></i> hello@brewhaven.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BrewHaven. All rights reserved.</span>
+            <span>Made with ☕ &amp; ❤️ &nbsp;|&nbsp; <a href="faq.html">FAQ</a></span>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Dynamic item data based on URL param
+        const menuData = {
+            cappuccino: { name: 'Classic Cappuccino', category: 'Coffee', emoji: '☕', price: '₹220', img: 'assets/images/cappuccino.jpg', ingredients: ['Espresso', 'Steamed Milk', 'Cocoa Foam', 'Valrhona Cocoa'] },
+            latte: { name: 'Caramel Latte', category: 'Coffee', emoji: '☕', price: '₹250', img: 'assets/images/caramel-latte.jpg', ingredients: ['Espresso', 'Milk', 'Caramel Syrup', 'Caramel Drizzle'] },
+            'cold-brew': { name: 'Signature Cold Brew', category: 'Coffee', emoji: '☕', price: '₹280', img: 'assets/images/cold-brew.jpg', ingredients: ['Single Origin Beans', 'Filtered Water', '18h Cold Steep'] },
+            espresso: { name: 'Double Espresso', category: 'Coffee', emoji: '☕', price: '₹180', img: 'assets/images/espresso.jpg', ingredients: ['Ethiopian Beans', 'Espresso Ground', 'Hot Water'] },
+            mocha: { name: 'Hazelnut Mocha', category: 'Coffee', emoji: '☕', price: '₹270', img: 'assets/images/hazelnut-mocha.jpg', ingredients: ['Espresso', 'Chocolate Sauce', 'Hazelnut Syrup', 'Milk', 'Whipped Cream'] },
+            'flat-white': { name: 'Flat White', category: 'Coffee', emoji: '☕', price: '₹230', img: 'assets/images/flat-white.jpg', ingredients: ['Double Ristretto', 'Micro-foam Milk'] },
+            'matcha-latte': { name: 'Matcha Cloud Latte', category: 'Tea', emoji: '🍵', price: '₹250', img: 'assets/images/matcha-latte.jpg', ingredients: ['Ceremonial Matcha', 'Oat Milk', 'Honey', 'Vanilla'] },
+            'chai-latte': { name: 'Masala Chai Latte', category: 'Tea', emoji: '🍵', price: '₹190', img: 'assets/images/chai-latte.jpg', ingredients: ['Assam Tea', 'Cardamom', 'Cinnamon', 'Clove', 'Steamed Milk'] },
+            hibiscus: { name: 'Hibiscus Rose Iced Tea', category: 'Tea', emoji: '🍵', price: '₹200', img: 'assets/images/hibiscus-tea.jpg', ingredients: ['Hibiscus Petals', 'Dried Rose', 'Fresh Mint', 'Honey', 'Ice'] },
+            croissant: { name: 'Butter Croissant', category: 'Snacks', emoji: '🥐', price: '₹160', img: 'assets/images/croissant.jpg', ingredients: ['Flour', 'Pure French Butter', 'Sea Salt', 'Egg Wash'] },
+            sandwich: { name: 'Grilled Chicken Sandwich', category: 'Snacks', emoji: '🥪', price: '₹320', img: 'assets/images/sandwich.jpg', ingredients: ['Sourdough Bread', 'Grilled Chicken', 'Avocado', 'Pesto', 'Arugula'] },
+            'avocado-toast': { name: 'Avocado Toast', category: 'Snacks', emoji: '🥑', price: '₹280', img: 'assets/images/avocado-toast.jpg', ingredients: ['Multigrain Bread', 'Avocado', 'Poached Egg', 'Chilli Flakes', 'Lemon'] },
+            cheesecake: { name: 'New York Cheesecake', category: 'Desserts', emoji: '🍰', price: '₹290', img: 'assets/images/cheesecake.jpg', ingredients: ['Cream Cheese', 'Graham Cracker Crust', 'Berry Compote', 'Vanilla'] },
+            tiramisu: { name: 'Classic Tiramisu', category: 'Desserts', emoji: '🍰', price: '₹310', img: 'assets/images/tiramisu.jpg', ingredients: ['Mascarpone', 'Espresso', 'Savoiardi Ladyfingers', 'Cocoa Powder', 'Rum'] },
+            dalgona: { name: 'Dalgona Whip Coffee', category: 'Specials', emoji: '⭐', price: '₹300', img: 'assets/images/dalgona.jpg', ingredients: ['Whipped Espresso', 'Condensed Milk', 'Oat Milk', 'Ice'] },
+            'turmeric-latte': { name: 'Golden Turmeric Latte', category: 'Specials', emoji: '✨', price: '₹240', img: 'assets/images/turmeric-latte.jpg', ingredients: ['Turmeric', 'Ginger', 'Ceylon Cinnamon', 'Black Pepper', 'Oat Milk'] },
+        };
+
+        function loadItem() {
+            const params = new URLSearchParams(window.location.search);
+            const key = params.get('item') || 'cappuccino';
+            const item = menuData[key] || menuData['cappuccino'];
+
+            document.title = item.name + ' — BrewHaven';
+            document.getElementById('itemName').textContent = item.name;
+            document.getElementById('itemCategory').textContent = item.category;
+            document.getElementById('itemPrice').textContent = item.price;
+            document.getElementById('itemImg').src = item.img;
+            document.getElementById('itemImg').alt = item.name;
+            document.getElementById('itemBadge').textContent = item.emoji + ' ' + item.category;
+            document.getElementById('breadItem').textContent = item.name;
+
+            const tagsEl = document.getElementById('itemIngredients');
+            tagsEl.innerHTML = item.ingredients.map(i => `<span class="ingredient-tag">${i}</span>`).join('');
+        }
+        loadItem();
+    </script>
+</body>
+
+</html>
+

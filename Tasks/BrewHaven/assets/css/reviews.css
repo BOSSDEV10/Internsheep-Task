@@ -1,0 +1,208 @@
+/* ============================================================
+   BrewHaven — reviews.css
+   ============================================================ */
+
+/* Rating Overview */
+.rating-overview {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    padding: 2.5rem 3rem;
+    background: var(--clr-cream);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(192, 125, 62, .2);
+    margin-bottom: 1rem;
+}
+
+.rating-big {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.rating-number {
+    display: block;
+    font-family: var(--ff-heading);
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--clr-caramel);
+    line-height: 1;
+    margin-bottom: .3rem;
+}
+
+.rating-sub {
+    font-size: .82rem;
+    color: var(--clr-mocha);
+    margin-top: .4rem;
+    display: block;
+}
+
+.rating-bars {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.rating-bar-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-size: .85rem;
+    color: var(--clr-mocha);
+}
+
+.rating-bar-row>span:first-child {
+    min-width: 32px;
+    text-align: right;
+}
+
+.rating-bar-row>span:last-child {
+    min-width: 32px;
+    font-weight: 600;
+    color: var(--clr-espresso);
+}
+
+.bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: rgba(192, 125, 62, .15);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--clr-caramel), var(--clr-gold));
+    border-radius: 99px;
+    transition: width 1.2s ease;
+}
+
+.rating-tags {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.rating-tags span {
+    display: inline-block;
+    background: var(--clr-white);
+    border: 1px solid rgba(192, 125, 62, .25);
+    color: var(--clr-mocha);
+    font-size: .8rem;
+    font-weight: 600;
+    padding: .4rem .9rem;
+    border-radius: var(--radius-xl);
+    white-space: nowrap;
+}
+
+/* Reviews Grid */
+.reviews-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.review-page-card {
+    background: var(--clr-white);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--clr-latte);
+    transition: transform var(--trans), box-shadow var(--trans);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-page-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 44px rgba(59, 31, 10, .18);
+}
+
+.rpc-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.rpc-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--clr-gold);
+    flex-shrink: 0;
+}
+
+.rpc-meta {
+    flex: 1;
+}
+
+.rpc-meta strong {
+    display: block;
+    font-size: .95rem;
+    color: var(--clr-espresso);
+}
+
+.rpc-meta span {
+    font-size: .78rem;
+    color: var(--clr-mocha);
+    line-height: 1.4;
+    display: block;
+}
+
+.rpc-date {
+    color: var(--clr-caramel) !important;
+    font-weight: 600 !important;
+}
+
+.rpc-stars {
+    font-size: 1rem;
+    color: var(--clr-gold);
+    flex-shrink: 0;
+}
+
+.rpc-text {
+    font-size: .9rem;
+    color: var(--clr-mocha);
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid var(--clr-latte);
+}
+
+.rpc-source {
+    font-size: .75rem;
+    color: rgba(59, 31, 10, .4);
+    font-weight: 600;
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+}
+
+.rpc-source i {
+    color: var(--clr-caramel);
+}
+
+@media (max-width: 1000px) {
+    .rating-overview {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .reviews-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .reviews-page-grid {
+        grid-template-columns: 1fr;
+    }
+}

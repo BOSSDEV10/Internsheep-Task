@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Explore BrewHaven's full menu – premium coffees, teas, snacks, desserts and special drinks crafted with love." />
+    <title>Menu — BrewHaven</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/menu.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo" aria-label="BrewHaven Home">
+                <div class="logo-icon">☕</div>
+                <span class="logo-text">Brew<span>Haven</span></span>
+            </a>
+            <nav class="site-nav" role="navigation" aria-label="Main navigation"><a href="index.html">Home</a>
+                <div class="nav-item"><a href="menu.html">Menu <span class="nav-caret">&#9660;</span></a>
+                    <div class="nav-dropdown"><a href="menu.html#coffee"><i class="fa fa-mug-hot"></i> Coffee</a><a
+                            href="menu.html#tea"><i class="fa fa-leaf"></i> Tea</a><a href="menu.html#snacks"><i
+                                class="fa fa-bread-slice"></i> Snacks</a><a href="menu.html#desserts"><i
+                                class="fa fa-cake-candles"></i> Desserts</a>
+                        <div class="dd-divider"></div><a href="menu.html#specials"><i class="fa fa-star"></i>
+                            Specials</a>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="about.html">About <span class="nav-caret">&#9660;</span></a>
+                    <div class="nav-dropdown"><a href="about.html#story"><i class="fa fa-book-open"></i> Our Story</a><a
+                            href="about.html#team"><i class="fa fa-users"></i> Our Team</a><a
+                            href="about.html#philosophy"><i class="fa fa-seedling"></i> Philosophy</a></div>
+                </div>
+                <div class="nav-item"><a href="gallery.html">Discover <span class="nav-caret">&#9660;</span></a>
+                    <div class="nav-dropdown"><a href="gallery.html"><i class="fa fa-images"></i> Gallery</a><a
+                            href="offers.html"><i class="fa fa-tag"></i> Offers</a><a href="reviews.html"><i
+                                class="fa fa-star-half-stroke"></i> Reviews</a></div>
+                </div>
+                <div class="nav-item"><a href="events.html">Events <span class="nav-caret">&#9660;</span></a>
+                    <div class="nav-dropdown"><a href="events.html#upcoming-events"><i class="fa fa-calendar-check"></i>
+                            Upcoming</a><a href="events.html#past-events"><i class="fa fa-clock-rotate-left"></i> Past
+                            Events</a></div>
+                </div>
+                <div class="nav-item"><a href="contact.html">Contact <span class="nav-caret">&#9660;</span></a>
+                    <div class="nav-dropdown"><a href="contact.html#contact-main"><i class="fa fa-envelope"></i> Send
+                            Message</a><a href="contact.html#visit"><i class="fa fa-map-location-dot"></i> Find Us</a>
+                        <div class="dd-divider"></div><a href="faq.html"><i class="fa fa-circle-question"></i> FAQ</a>
+                    </div>
+                </div>
+            </nav>
+            <a href="contact.html#visit" class="btn-cta"><i class="fa fa-location-dot"></i> Visit Us Today</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"><a href="index.html">Home</a><a
+            href="menu.html">Menu</a><a href="menu.html#coffee"
+            style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Coffee</a><a href="menu.html#tea"
+            style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Tea</a><a href="menu.html#snacks"
+            style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; Snacks &amp; Desserts</a><a
+            href="about.html">About</a><a href="gallery.html">Gallery</a><a href="offers.html">Offers</a><a
+            href="reviews.html">Reviews</a><a href="events.html">Events</a><a href="contact.html">Contact</a><a
+            href="faq.html" style="padding-left:2rem;font-size:.82rem;opacity:.75">&#8627; FAQ</a><a
+            href="contact.html#visit" class="btn btn-primary">Visit Us Today</a></nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-bg"
+            style="background-image:url('assets/images/latte-art.jpg')">
+        </div>
+        <div class="page-hero-content">
+            <span class="page-hero-label">Explore & Savour</span>
+            <h1 class="page-hero-title">Our Menu</h1>
+            <p class="page-hero-sub">Every item crafted with premium ingredients and served with passion.</p>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="section" id="menu-section">
+        <div class="container">
+
+            <!-- Search + Filter Bar -->
+            <div class="menu-controls reveal">
+                <div class="menu-search-wrap">
+                    <i class="fa fa-search"></i>
+                    <input type="search" id="menuSearch" placeholder="Search menu items…" class="menu-search"
+                        aria-label="Search menu" />
+                </div>
+                <div class="menu-filter-wrap">
+                    <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+                    <button class="filter-btn" data-filter="coffee" id="filter-coffee">☕ Coffee</button>
+                    <button class="filter-btn" data-filter="tea" id="filter-tea">🍵 Tea</button>
+                    <button class="filter-btn" data-filter="snacks" id="filter-snacks">🥐 Snacks</button>
+                    <button class="filter-btn" data-filter="desserts" id="filter-desserts">🍰 Desserts</button>
+                    <button class="filter-btn" data-filter="specials" id="filter-specials">⭐ Specials</button>
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menuGrid">
+
+                <!-- COFFEE -->
+                <div id="coffee" style="grid-column:1/-1;height:0;margin:0"></div>
+                <a href="menu-detail.html?item=cappuccino" class="menu-item-card reveal" data-category="coffee"
+                    data-name="classic cappuccino" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/cappuccino.jpg"
+                            alt="Classic Cappuccino" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Classic Cappuccino</h3>
+                        <p class="mic-ingredients">Espresso · Steamed Milk · Cocoa Foam</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹220</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=latte" class="menu-item-card reveal" data-category="coffee"
+                    data-name="caramel latte" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/caramel-latte.jpg"
+                            alt="Caramel Latte" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Caramel Latte</h3>
+                        <p class="mic-ingredients">Espresso · Milk · Caramel Drizzle</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹250</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=cold-brew" class="menu-item-card reveal" data-category="coffee"
+                    data-name="signature cold brew" data-delay="160">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/cold-brew.jpg"
+                            alt="Cold Brew" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                        <span class="mic-hot-badge">🔥 Popular</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Signature Cold Brew</h3>
+                        <p class="mic-ingredients">Single Origin · 18h Steep · Natural Sweet</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹280</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=espresso" class="menu-item-card reveal" data-category="coffee"
+                    data-name="double espresso" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/espresso.jpg"
+                            alt="Espresso" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Double Espresso</h3>
+                        <p class="mic-ingredients">Double Shot · Ethiopian Beans</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹180</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=mocha" class="menu-item-card reveal" data-category="coffee"
+                    data-name="hazelnut mocha" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/hazelnut-mocha.jpg"
+                            alt="Hazelnut Mocha" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Hazelnut Mocha</h3>
+                        <p class="mic-ingredients">Espresso · Chocolate · Hazelnut · Milk</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹270</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=flat-white" class="menu-item-card reveal" data-category="coffee"
+                    data-name="flat white" data-delay="160">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/flat-white.jpg"
+                            alt="Flat White" loading="lazy" />
+                        <span class="mic-cat-badge coffee">Coffee</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Flat White</h3>
+                        <p class="mic-ingredients">Double Ristretto · Micro-foam Milk</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹230</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- TEA -->
+                <div id="tea" style="grid-column:1/-1;height:0;margin:0"></div>
+                <a href="menu-detail.html?item=matcha-latte" class="menu-item-card reveal" data-category="tea"
+                    data-name="matcha cloud latte" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/matcha-latte.jpg"
+                            alt="Matcha Latte" loading="lazy" />
+                        <span class="mic-cat-badge tea">Tea</span>
+                        <span class="mic-hot-badge">🔥 Popular</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Matcha Cloud Latte</h3>
+                        <p class="mic-ingredients">Ceremonial Matcha · Oat Milk · Honey</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹250</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=chai-latte" class="menu-item-card reveal" data-category="tea"
+                    data-name="masala chai latte" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/chai-latte.jpg"
+                            alt="Chai Latte" loading="lazy" />
+                        <span class="mic-cat-badge tea">Tea</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Masala Chai Latte</h3>
+                        <p class="mic-ingredients">Assam Tea · Spices · Steamed Milk</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹190</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=hibiscus" class="menu-item-card reveal" data-category="tea"
+                    data-name="hibiscus rose tea" data-delay="160">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/hibiscus-tea.jpg"
+                            alt="Hibiscus Tea" loading="lazy" />
+                        <span class="mic-cat-badge tea">Tea</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Hibiscus Rose Iced Tea</h3>
+                        <p class="mic-ingredients">Hibiscus · Rose · Mint · Honey</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹200</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- SNACKS -->
+                <div id="snacks" style="grid-column:1/-1;height:0;margin:0"></div>
+                <a href="menu-detail.html?item=croissant" class="menu-item-card reveal" data-category="snacks"
+                    data-name="butter croissant" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/croissant.jpg" alt="Croissant"
+                            loading="lazy" />
+                        <span class="mic-cat-badge snacks">Snacks</span>
+                        <span class="mic-hot-badge">🔥 Popular</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Butter Croissant</h3>
+                        <p class="mic-ingredients">Flour · Pure French Butter · Sea Salt</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹160</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=sandwich" class="menu-item-card reveal" data-category="snacks"
+                    data-name="grilled chicken sandwich" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/sandwich.jpg"
+                            alt="Sandwich" loading="lazy" />
+                        <span class="mic-cat-badge snacks">Snacks</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Grilled Chicken Sandwich</h3>
+                        <p class="mic-ingredients">Sourdough · Grilled Chicken · Avocado · Pesto</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹320</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=avocado-toast" class="menu-item-card reveal" data-category="snacks"
+                    data-name="avocado toast" data-delay="160">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/avocado-toast.jpg"
+                            alt="Avocado Toast" loading="lazy" />
+                        <span class="mic-cat-badge snacks">Snacks</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Avocado Toast</h3>
+                        <p class="mic-ingredients">Multigrain Bread · Avocado · Poached Egg · Chilli Flakes</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹280</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- DESSERTS -->
+                <div id="desserts" style="grid-column:1/-1;height:0;margin:0"></div>
+                <a href="menu-detail.html?item=cheesecake" class="menu-item-card reveal" data-category="desserts"
+                    data-name="new york cheesecake" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/cheesecake.jpg"
+                            alt="Cheesecake" loading="lazy" />
+                        <span class="mic-cat-badge desserts">Desserts</span>
+                        <span class="mic-hot-badge">🔥 Popular</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">New York Cheesecake</h3>
+                        <p class="mic-ingredients">Cream Cheese · Graham Cracker · Berry Compote</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹290</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=tiramisu" class="menu-item-card reveal" data-category="desserts"
+                    data-name="classic tiramisu" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/tiramisu.jpg"
+                            alt="Tiramisu" loading="lazy" />
+                        <span class="mic-cat-badge desserts">Desserts</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Classic Tiramisu</h3>
+                        <p class="mic-ingredients">Mascarpone · Espresso · Ladyfingers · Cocoa</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹310</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- SPECIALS -->
+                <div id="specials" style="grid-column:1/-1;height:0;margin:0"></div>
+                <a href="menu-detail.html?item=dalgona" class="menu-item-card reveal" data-category="specials"
+                    data-name="dalgona coffee" data-delay="0">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/dalgona.jpg"
+                            alt="Dalgona Coffee" loading="lazy" />
+                        <span class="mic-cat-badge specials">Special</span>
+                        <span class="mic-hot-badge">🔥 Trending</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Dalgona Whip Coffee</h3>
+                        <p class="mic-ingredients">Whipped Espresso · Condensed Milk · Oat Milk</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹300</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="menu-detail.html?item=turmeric-latte" class="menu-item-card reveal" data-category="specials"
+                    data-name="golden turmeric latte" data-delay="80">
+                    <div class="mic-img-wrap">
+                        <img src="assets/images/turmeric-latte.jpg"
+                            alt="Turmeric Latte" loading="lazy" />
+                        <span class="mic-cat-badge specials">Special</span>
+                    </div>
+                    <div class="mic-body">
+                        <h3 class="mic-name">Golden Turmeric Latte</h3>
+                        <p class="mic-ingredients">Turmeric · Ginger · Ceylon Cinnamon · Oat Milk</p>
+                        <div class="mic-footer">
+                            <span class="mic-price">₹240</span>
+                            <span class="badge badge-green">Available</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div><!-- /menu-grid -->
+
+            <!-- No results -->
+            <p class="menu-no-results" id="menuNoResults" style="display:none">
+                <i class="fa fa-search"></i> No items found. Try a different search.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">☕</div><span class="logo-text">Brew<span>Haven</span></span>
+                </a>
+                <p style="margin-top:1rem">BrewHaven is a premium coffee destination serving handcrafted beverages and
+                    delicious food in a cozy atmosphere.</p>
+                <div class="social-links" style="margin-top:1.25rem">
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Google Maps"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="footer-hours">
+                    <li>Mon – Fri <span>8 AM – 10 PM</span></li>
+                    <li>Sat – Sun <span>9 AM – 11 PM</span></li>
+                    <li>Public Holidays <span>10 AM – 8 PM</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa fa-location-dot"></i> 42 Brew Lane, Koramangala, Bengaluru – 560034</li>
+                    <li><i class="fa fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa fa-envelope"></i> hello@brewhaven.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BrewHaven. All rights reserved.</span>
+            <span>Made with ☕ &amp; ❤️ &nbsp;|&nbsp; <a href="faq.html">FAQ</a> &nbsp;|&nbsp; <a href="#">Privacy
+                    Policy</a></span>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Live search
+        const searchInput = document.getElementById('menuSearch');
+        const cards = document.querySelectorAll('.menu-item-card');
+        const noResults = document.getElementById('menuNoResults');
+
+        searchInput.addEventListener('input', () => {
+            const q = searchInput.value.toLowerCase().trim();
+            let visible = 0;
+            cards.forEach(c => {
+                const match = c.dataset.name.includes(q) || c.dataset.category.includes(q);
+                c.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+        });
+
+        // Filter also clears search
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                searchInput.value = '';
+                noResults.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+/* ============================================================
+   BrewHaven — about.css
+   ============================================================ */
+
+/* Story */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+.story-p {
+    font-size: .95rem;
+    color: var(--clr-mocha);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+}
+
+.story-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--clr-cream);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--clr-caramel);
+}
+
+.stat-box {
+    text-align: center;
+    flex: 1;
+    min-width: 90px;
+}
+
+.stat-box strong {
+    display: block;
+    font-family: var(--ff-heading);
+    font-size: 2rem;
+    color: var(--clr-caramel);
+    line-height: 1;
+    margin-bottom: .2rem;
+}
+
+.stat-box span {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--clr-mocha);
+}
+
+.story-imgs {
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: .75rem;
+}
+
+.story-img-main {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.story-img-sm {
+    width: 60%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-left: auto;
+}
+
+/* Philosophy */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+}
+
+.philo-card {
+    background: var(--clr-white);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    border-top: 3px solid var(--clr-caramel);
+    transition: transform var(--trans), box-shadow var(--trans);
+}
+
+.philo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 48px rgba(59, 31, 10, .18);
+}
+
+.philo-icon {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.philo-card h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.1rem;
+    color: var(--clr-espresso);
+    margin-bottom: .6rem;
+}
+
+.philo-card p {
+    font-size: .87rem;
+    color: var(--clr-mocha);
+    line-height: 1.75;
+}
+
+/* Team */
+.team-card {
+    background: var(--clr-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--trans), box-shadow var(--trans);
+    text-align: center;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(59, 31, 10, .2);
+}
+
+.team-img-wrap {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.06);
+}
+
+.team-social {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 15, 0, .8));
+    display: flex;
+    justify-content: center;
+    gap: .6rem;
+    padding: 1.5rem .5rem .75rem;
+    transform: translateY(100%);
+    transition: transform var(--trans);
+}
+
+.team-card:hover .team-social {
+    transform: translateY(0);
+}
+
+.team-social a {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-white);
+    font-size: .8rem;
+    transition: background var(--trans);
+}
+
+.team-social a:hover {
+    background: var(--clr-caramel);
+    border-color: var(--clr-caramel);
+}
+
+.team-info {
+    padding: 1.25rem;
+}
+
+.team-info h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.05rem;
+    color: var(--clr-espresso);
+    margin-bottom: .25rem;
+}
+
+.team-info span {
+    font-size: .78rem;
+    color: var(--clr-caramel);
+    font-weight: 700;
+    letter-spacing: .05em;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.team-info p {
+    font-size: .82rem;
+    color: var(--clr-mocha);
+    line-height: 1.65;
+}
+
+/* Why grid */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.why-item {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(212, 168, 83, .15);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    transition: background var(--trans), transform var(--trans);
+}
+
+.why-item:hover {
+    background: rgba(255, 255, 255, .09);
+    transform: translateY(-5px);
+}
+
+.why-item i {
+    font-size: 2rem;
+    color: var(--clr-gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.why-item h4 {
+    font-family: var(--ff-heading);
+    font-size: 1.05rem;
+    color: var(--clr-white);
+    margin-bottom: .5rem;
+}
+
+.why-item p {
+    font-size: .87rem;
+    color: rgba(253, 250, 245, .65);
+    line-height: 1.7;
+}
+
+@media (max-width: 1100px) {
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .story-img-main {
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-stats {
+        gap: 1rem;
+    }
+}
